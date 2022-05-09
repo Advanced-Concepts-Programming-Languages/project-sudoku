@@ -1,0 +1,31 @@
+{
+  "Solver": "clingo version 5.5.1",
+  "Input": [
+    "sudoku3.lp",
+    "instances/q3/1x1/ex00.lp"
+  ],
+  "Call": [
+    {
+      "Witnesses": [
+        {
+          "Value": [
+            "sudoku(1,1,1)"
+          ]
+        }
+      ]
+    }
+  ],
+  "Result": "SATISFIABLE",
+  "Models": {
+    "Number": 1,
+    "More": "no"
+  },
+  "Calls": 1,
+  "Time": {
+    "Total": 0.001,
+    "Solve": 0.0,
+    "Model": 0.0,
+    "Unsat": 0.0,
+    "CPU": 0.001
+  }
+}
