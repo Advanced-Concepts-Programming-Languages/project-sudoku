@@ -7,8 +7,12 @@ import os
 import json
 import time
 import argparse
+from abc import ABC, abstractmethod
 
 MAX_SOLUTIONS = '925'
+
+def dispatch_question(args):
+    pass
 
 def call_clingo(clingo, input_names, timeout):
     cmd = [clingo, "--warn=no-atom-undefined", "--warn=no-file-included", "--warn=no-operation-undefined", "--warn=no-variable-unbounded", "--warn=no-global-variable", "--outf=2"] + input_names
@@ -51,7 +55,34 @@ def get_solutions(output):
     _, solutions = check_result(output, "SAT")
     return solutions
 
-class QuestionSAT():
+class Question(ABC):
+
+    @abstractmethod
+    def eval(self):
+        pass
+
+
+class QuestionALL(Question):
+
+    def __init__(self, args, question_data, silent_print=False):
+        self._args = args
+        path = question_data['path']
+        self._questions = [ os.path.join(path, q) for q in  question_data['questions'] ]
+        self._points   = question_data.get('points', None)
+        self._silent_print = silent_print
+
+    def eval(self):
+        success = True
+        message = ""
+        for question_path in self._questions:
+            self._args.question = question_path
+            question = dispatch_question(self._args)
+            s,m = question.eval()
+            success = success & s
+            message = message + m
+        return success, message
+
+class QuestionSAT(Question):
 
     def __init__(self, args, question_data, silent_print=False):
         self._args = args
@@ -158,6 +189,8 @@ def dispatch_question(args):
         type = question_data['type']
         if type == 'exact':
             return QuestionSATExact(args, question_data)
+        if type == 'all':
+            return QuestionALL(args, question_data)
         # elif type == 'lower-upper':
         #     return QuestionSATLowerUpper(args, question_data)
         raise Exception(f'Unrecognised type ({type}).')
@@ -230,6 +263,9 @@ def parse():
     if args.generate_solutions is not None and args.generate_solutions[-1] != "/":
             args.generate_solutions+="/"
 
+    if args.generate_solutions is None and  args.question is None:
+        args.question ="ALL"
+
     return args
 
 def main():
@@ -267,7 +303,7 @@ def main():
             if e.args[0] == 'Question not found':
                 sys.stderr.write(f"ERROR: {e.args[0]} {e.args[1]}\n")
                 return 1
-        # raise e
+        raise e
         sys.stderr.write("ERROR: %s\n" % str(e))
         return 1
 
