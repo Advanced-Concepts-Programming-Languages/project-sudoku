@@ -234,7 +234,7 @@ def parse():
 
 def main():
     if sys.version_info < (3, 6):
-        raise SystemExit('Sorry, this code need Python 3.5 or higher')
+        raise SystemExit('Sorry, this code need Python 3.6 or higher')
     try:
         args=parse()
         if args.generate_solutions:
@@ -267,8 +267,8 @@ def main():
             if e.args[0] == 'Question not found':
                 sys.stderr.write(f"ERROR: {e.args[0]} {e.args[1]}\n")
                 return 1
-        raise e
-        # sys.stderr.write("ERROR: %s\n" % str(e))
+        # raise e
+        sys.stderr.write("ERROR: %s\n" % str(e))
         return 1
 
 if __name__ == '__main__':
