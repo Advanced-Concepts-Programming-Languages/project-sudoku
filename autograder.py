@@ -63,7 +63,7 @@ class QuestionSAT():
             self._instances = os.listdir(self._instance_path)
             self._instances.sort()
         self._encoding = question_data['encoding']
-        self._points   = question_data['points']
+        self._points   = question_data.get('points', None)
         self._silent_print = silent_print
 
 
@@ -122,7 +122,6 @@ class QuestionSAT():
                 else:
                     result = "error\n"
                     error = e
-                raise e
             message += "$"+instance + ": "
             if result:
                 message += result
@@ -249,7 +248,14 @@ def main():
                 message += "FAILURE\n"
             sys.stdout.write(message)
         else:
-            success, message = test(args)
+            question_data = { "type"          : "exact",
+                              "instance-path" : args.instances,
+                              "solutions"     : args.solutions,
+                              "encoding"      : args.encoding,
+                              "path"          : os.getcwd()
+                            }
+            question = QuestionSATExact(args, question_data)
+            success, message = question.eval()
             if success:
                 message += "SUCCESS\n"
             else:
