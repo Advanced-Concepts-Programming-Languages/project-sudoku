@@ -171,24 +171,24 @@ def parse():
                         required=False, default=None)
 
     parser.add_argument('--clingo', '-c', metavar='<path>', 
-                        help='Clingo to use', 
+                        help='Clingo to use.', 
                         default="clingo",
                         required=False)
 
     parser.add_argument('--encoding', '-e', metavar='<file>',
-                        help='ASP encoding to test', 
+                        help='ASP encoding to test.', 
                         required=False, default=None)
 
     parser.add_argument('--instances', '-i', metavar='<path>',
-                        help='Directory of the instances', 
+                        help='Directory of the instances.', 
                         required=False, default=None)
 
     parser.add_argument('--solutions', '-s', metavar='<path>',
-                        help='Directory of the solutions',
+                        help='Directory of the solutions.',
                         required=False, default=None)
 
     parser.add_argument('--timeout', '-t', metavar='N', type=int,
-                        help='Time allocated to each instance',
+                        help='Time allocated to each instance.',
                         required=False, default=180)
 
     parser.add_argument('--generate-solutions', metavar='<dir>',
@@ -202,14 +202,14 @@ def parse():
                                       args.instances is not None or
                                       args.solutions is not None or
                                       args.generate_solutions is not None):
-        raise Exception('Flag  --solutions and --generatesolutions cannot be used together')
+        raise Exception('Flag  --solutions and --generatesolutions cannot be used together.')
 
     if args.solutions is not None and args.generate_solutions is not None:
-        raise Exception('Flags --question cannot be used in combination with --encoding, --instances, --solutions nor --generatesolutions')
+        raise Exception('Flags --question cannot be used in combination with --encoding, --instances, --solutions nor --generatesolutions.')
 
     if args.generate_solutions is not None and (args.encoding is None or
                                                 args.instances is None):
-        raise Exception('Flag --generatesolutions requireds flags --encoding and --instances')
+        raise Exception('Flag --generatesolutions requires flags --encoding and --instances.')
     
     if args.encoding is not None and not os.path.isfile(args.encoding):
         raise IOError("file %s not found!" % args.encoding)
