@@ -1,3 +1,5 @@
+#const n=4.
+
 initial(1,1,5).
 initial(1,2,16).
 initial(1,3,11).

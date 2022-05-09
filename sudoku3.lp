@@ -2,7 +2,7 @@
 %
 %
 
-#const n=4.
+#const n=3.
 
 % HINTS:
 % - For subgrid_size(s), subgrids can be identified by labels 0..s*s-1
