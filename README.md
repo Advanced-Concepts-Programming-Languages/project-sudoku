@@ -1,7 +1,7 @@
 # Sudoku Project
 The first assignment consist on developing a sudoku solver.
 
-The task of this project is to solve a Generalized Sudoku puzzle using ASP. The goal of the traditional Sudoku game is to fill a 9x9 grid with digits so that each column, each row and each of the nine 3x3 sub-grids that compose the grid contains all numbers from 1 to 9.  In other words, the grid has to be filled with numbers from 1 to 9 so that the same number does not appear twice in the same row, column or in any of the nine 3x3 sub-grids of the 9x9 playing board. Initially the grid is partially filled. The Generalized Sudoku problem is similar, but instead of using a 9x9 board it uses a mxm board for some perfect scuare m (See Question 3 below for more detail).
+The task of this project is to solve a Generalized Sudoku puzzle using ASP. The goal of the traditional Sudoku game is to fill a 9x9 grid with digits so that each column, each row and each of the nine 3x3 sub-grids that compose the grid contains all numbers from 1 to 9.  In other words, the grid has to be filled with numbers from 1 to 9 so that the same number does not appear twice in the same row, column or in any of the nine 3x3 sub-grids of the 9x9 playing board. Initially the grid is partially filled. The Generalized Sudoku problem is similar, but instead of using a 9x9 board it uses a mxm board for some perfect square m (See Question 3 below for more detail).
 
 One example of the 9x9 Sudoku is shown in the next figure. The left side shows the initial configuration, and the right side shows the same puzzle with solution numbers marked in red.
 
@@ -41,17 +41,17 @@ sudoku(9,1,3) sudoku(9,2,4) ... sudoku(9,8,7) sudoku(9,9,9)
 ## Formalities.
 You can work on the solution alone or in groups of two people. Different groups have to submit different solutions, in case of plagiarism all groups involved will fail the project.
 
-Your solution has to correctly encode all solutions for every instance. In fact, our test instances usually have several solutions. Your code will be autograded for technical correctness. However, the correctness of your implementation -- not the autograder's judgements -- will be the final judge of your score. If necessary, we will review and grade assignments individually to ensure that you receive due credit for your work.
+Your solution has to correctly encode all solutions for every instance. In fact, our test instances usually have several solutions. Your code will be autograded for technical correctness. However, the correctness of your implementation -- not the autograder's judgments -- will be the final judge of your score. If necessary, we will review and grade assignments individually to ensure that you receive due credit for your work.
 
-The content of the **main brach** of your GitHub repository at the time of the deadline will be considered your submission. Any modifications a
+The content of the **main branch** of your GitHub repository at the time of the deadline will be considered your submission. Any modifications a
 
 **Start as soon as possible to avoid running out of time.**
 
 ## Question 0: Git and GitHub (10 points)
 
-We will use Git and GitHub as framework for developing this project. This question will help you to familiarize your self with these tools. The first step is to clone this repository into your computer. For this, click the button **Code** in right top corner of this page and copy the url. Then, go to a terminal in your computer and type
+We will use Git and GitHub as framework for developing this project. This question will help you to familiarize your self with these tools. The first step is to clone this repository into your computer. For this, click the button **Code** in right top corner of this page and copy the URL. Then, go to a terminal in your computer and type
 
-```git clone <url>```
+```git clone <URL>```
 
 A new directory with the name of this project will be created. Now create a file ```group.txt``` and write the name of each of the components of the group in a different line (if you work alone just add your name in the first line). Add it to the list of tracked files typing
 
@@ -73,14 +73,14 @@ You can get more information about the result of the test by clicking successive
 2. "Autograding".
 3. "Run education/autograding@v1".
 
-Now copy the file ```sudoku.lp``` to ```sudoku1a.lp``` and update the repository following the same steps as above. Note that when you create a new commit you should give a meaninfull comment. For instance, now you can create the new commit using the command
+Now copy the file ```sudoku.lp``` to ```sudoku1a.lp``` and update the repository following the same steps as above. Note that when you create a new commit you should give a meaningful comment. For instance, now you can create the new commit using the command
 
 ```git commit -am"creating sudoku1a.lp```
 
 Every time you push a new commit, your solution will be tested automatically. This also applies to the following questions.
 **You should have obtained now 10 points.**
 
-We recomend that you create new commits frecuently when doing the rest of this project. If at some point you realize you did a mistake, you can revert to a previous commit. Pushing to the GitHub repository may also help you in case that you accidentally lose your local copy. If you have doubts about Git or Github, or you can lear more about it, you can read the tutorial in following link:
+We recommend that you create new commits frequently when doing the rest of this project. If at some point you realize you did a mistake, you can revert to a previous commit. Pushing to the GitHub repository may also help you in case that you accidentally lose your local copy. If you have doubts about Git or Github, or you can learn more about it, you can read the tutorial in following link:
 
 https://github.com/Advanced-Concepts-Programming-Languages/github-starter-course
 
@@ -105,7 +105,7 @@ If the autograder tells you that your code does not correctly solve a particular
 
 ```solutions/q1a/<instance>.json```
 
-Solutions for subsequent questions can be found by chaging the folder ```q1a``` for the correspondint question.
+Solutions for subsequent questions can be found by chaging the folder ```q1a``` for the corresponding question.
 
 ### Question 1b (10 points):
 For this question, you should copy sudoku1a.lp to sudoku1b.lp and modify the latter. All stable models of this new program must contain facts of the form:
