@@ -43,7 +43,7 @@ You can work on the solution alone or in groups of two people. Different groups 
 
 Your solution has to correctly encode all solutions for every instance. In fact, our test instances usually have several solutions. Your code will be autograded for technical correctness. However, the correctness of your implementation -- not the autograder's judgments -- will be the final judge of your score. If necessary, we will review and grade assignments individually to ensure that you receive due credit for your work.
 
-The content of the **main branch** of your GitHub repository at the time of the deadline will be considered your submission. Any modifications a
+The content of the **main** branch of your GitHub repository at the time of the deadline will be considered your submission. Any modifications after deadline will be ignored. So will be any previous code that you committed before. Note that the autograder will give you the evaluation of your last commit, so be sure that it is what you expected.
 
 **Start as soon as possible to avoid running out of time.**
 
