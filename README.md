@@ -42,7 +42,7 @@ sudoku(9,1,3) sudoku(9,2,4) ... sudoku(9,8,7) sudoku(9,9,9)
 You can work on the solution alone or in groups of two people. Different groups have to submit different solutions, in case of plagiarism all groups involved will fail the project.
 
 Your solution has to correctly encode all solutions for every instance. In fact, our test instances usually have several solutions. Your code will be autograded for technical correctness. However, the correctness of your implementation -- not the autograder's judgements -- will be the final judge of your score. If necessary, we will review and grade assignments individually to ensure that you receive due credit for your work.
- 
+
 # Question 0: Git and GitHub (10 points)
 
 We will use Git and GitHub as framework for developing this project. This question will help you to familiarize your self with these tools. The first step is to clone this repository into your computer. For this, click the button **Code** in right top corner of this page and copy the url. Then, go to a terminal in your computer and type
@@ -118,7 +118,7 @@ You can automatically test your code running
 
 python autograder.py --question=1c
 
-Question 2: 9x9 Sudoku (40 points)
+Question 2: 9x9 Sudoku (30 points)
 For this question, we will represent a 9x9 Sudoku. Start by copying the file to sudoku1c.lp to sudoku2.lp and modify the later to solve the 9x9 sudoku. 
 
 To receive credit for this question, the program must correctly solve all instances in the folder instances/9x9. Solutions to this question can be found in the folder solutions/q2.
