@@ -161,6 +161,8 @@ The program can be automatically tested by running:
 
 python autograder.py --question=3
 
+**Be sure you have committed your changes, pushed them to the GitHub repository and see the grade you expected to receive in the Actions tab in GitHub.**
+
  
 
 
