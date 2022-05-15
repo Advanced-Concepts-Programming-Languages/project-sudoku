@@ -26,7 +26,7 @@ initial(8,4,4). initial(8,5,1). initial(8,6,9). initial(8,9,5).
 initial(9,5,8). initial(9,8,7). initial(9,9,9).
 ```
 
-For more examples see the folder ```instances```.
+For more examples see the folder **instances** of this repository.
 
 The solution is represented by atoms of predicate sudoku/3:
 
