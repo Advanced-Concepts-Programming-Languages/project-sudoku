@@ -38,35 +38,45 @@ sudoku(1,1,5) sudoku(1,2,3) ... sudoku(1,8,1) sudoku(1,9,2)
 sudoku(9,1,3) sudoku(9,2,4) ... sudoku(9,8,7) sudoku(9,9,9)
 ```
 
-Instructions about the problem can be found in the following link.
-
-
-Framework. (Links to an external site.)
-The directory asp contains the files that you need for the project. In the directory asp/instances you can find the instances, and in the directory asp/solutions you can find their solutions in json format.
-
-You have to submit a file named sudoku.lp, included as a template in the directory asp, that contains the following line (and no more #show statements) so that in the output only the atoms of predicate sudoku/3 appear:
-
-#show sudoku/3.
-
-You can check if your encoding solves correctly all instances by running the Python script test.py as follows:
-
-python asp/test.py asp/sudoku.lp 100 SAT
-In this case, the timeout for each instance is set to 100 seconds, but you can use any other value instead. We have tested the script with Python version 3.6.
-
-We recommend you to work locally in your computer, using your own installation of clingo.
-
-For this, you can run the next cell to generate a zip file of this directory. The zip file will be stored in the parent directory with the name sudoku.zip. You can click on the folder symbol at the left of the screen to look for it and download it.
-
-Formalities.
+# Formalities.
 You can work on the solution alone or in groups of two people. Different groups have to submit different solutions, in case of plagiarism all groups involved will fail the project.
 
-Your solution has to correctly encode all solutions for every instance. In fact, our test instances usually have several solutions. This is tested automatically by the script test.py.
-
-We will send you further instructions about the submission process from Moodle.
-
+Your solution has to correctly encode all solutions for every instance. In fact, our test instances usually have several solutions. Your code will be autograded for technical correctness. However, the correctness of your implementation -- not the autograder's judgements -- will be the final judge of your score. If necessary, we will review and grade assignments individually to ensure that you receive due credit for your work.
  
+# Question 0: Git and GitHub (10 points)
 
-Question 1: 4x4 Sudoku
+We will use Git and GitHub as framework for developing this project. This question will help you to familiarize your self with these tools. The first step is to clone this repository into your computer. For this, click the button **Code** in right top corner of this page and copy the url. Then, go to a terminal in your computer and type
+
+```git clone <url>```
+
+A new directory with the name of this project will be created. Now create a file ```group.txt``` and write the name of each of the components of the group in a different line (if you work alone just add your name in the first line). Add it to the list of tracked files typing
+
+```git add group.txt```
+
+Commit the change to the repository with the command
+
+```git commit -am"creating group.txt```
+
+Finally, update the GitHub repository typing the command 
+
+```git push```
+
+After a few minutes you will be able to see the result of the test in the **Actions** tab.
+**You should have obtained 5 points.**
+
+You can get more information about the result of the test by clicking successively on:
+1. The specific test.
+2. "Autograding".
+3. "Run education/autograding@v1".
+
+Now copy the file ```sudoku.lp``` to ```sudoku1a.lp``` and update the repository following the same steps as above. Note that when you create a new commit you should give a meaninfull comment. For instance, now you can create the new commit using the command
+
+```git commit -am"creating sudoku1a.lp```
+
+Every time you push a new commit, your solution will be tested automatically. This also applies to the following questions.
+**You should have obtained now 10 points.**
+
+# Question 1: 4x4 Sudoku
 To begin with, you will represent a 4x4 Sudoku. Later you will modify it to handle the 9x9 case.
 
 Question 1a (25 points):
@@ -173,3 +183,19 @@ For each instance, you will see if the test is a:
 * "failure" (wrong answer),
 * "timeout" (no solution found before the time runs out), or
 * "error" (clingo error).
+
+# Framework. (Links to an external site.)
+The directory asp contains the files that you need for the project. In the directory asp/instances you can find the instances, and in the directory asp/solutions you can find their solutions in json format.
+
+You have to submit a file named sudoku.lp, included as a template in the directory asp, that contains the following line (and no more #show statements) so that in the output only the atoms of predicate sudoku/3 appear:
+
+#show sudoku/3.
+
+You can check if your encoding solves correctly all instances by running the Python script test.py as follows:
+
+python asp/test.py asp/sudoku.lp 100 SAT
+In this case, the timeout for each instance is set to 100 seconds, but you can use any other value instead. We have tested the script with Python version 3.6.
+
+We recommend you to work locally in your computer, using your own installation of clingo.
+
+For this, you can run the next cell to generate a zip file of this directory. The zip file will be stored in the parent directory with the name sudoku.zip. You can click on the folder symbol at the left of the screen to look for it and download it.
