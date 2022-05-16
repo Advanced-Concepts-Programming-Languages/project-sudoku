@@ -47,6 +47,10 @@ The content of the **main** branch of your GitHub repository at the time of the 
 
 **Start as soon as possible to avoid running out of time.**
 
+Do not modify the file ```autograder.py``` nor any of the content of the directories ```.git```, ```.github```, ```img```, ```instances```, ```questions``` and ``` solutions```. Modifying some of this directories may prevent your code to work or cause lost of your progress. 
+
+**Academic Dishonesty**: We will be checking your code against other submissions in the class for logical redundancy. If you copy someone else's code and submit it with minor changes, we will know. These cheat detectors are quite hard to fool, so please don't try. Modifying the behaviour of the autograder in any way is also cheating. We trust you all to submit your own work only and to do it in honest way; please don't let us down. If you do, we will pursue the strongest consequences available to us.
+
 ## Question 0: Git and GitHub (10 points)
 
 We will use Git and GitHub as framework for developing this project. This question will help you to familiarize your self with these tools. The first step is to clone this repository into your computer. For this, click the button **Code** in right top corner of this page and copy the URL. Then, go to a terminal in your computer and type
