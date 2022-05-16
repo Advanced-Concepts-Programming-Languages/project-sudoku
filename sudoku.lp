@@ -1,12 +1,8 @@
-% Please insert the names and email addresses of the group members:
+% Sudoku Solver
 %
-%
-
-subgrid_size(3).
-
 % Hints:
-% - For subgrid_size(s), subgrids can be identified by labels 0..s*s-1
-% - A cell (x,y) can be mapped to the subgrid labeled (((x-1)/s)*s + (y-1)/s)
+% For subgrid of size n, subgrids can be identified by labels 1..n*n
+% A cell (x,y) can be mapped to the subgrid labeled 1+(((x-1)/n)*n+(y-1)/n)
 
 % Your implementation please...
 

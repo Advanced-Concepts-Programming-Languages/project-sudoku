@@ -94,6 +94,8 @@ class QuestionSAT(Question):
             self._instances = os.listdir(self._instance_path)
             self._instances.sort()
         self._encoding = question_data['encoding']
+        if isinstance(self._encoding, str):
+            self._encoding = [self._encoding]
         self._points   = question_data.get('points', None)
         self._silent_print = silent_print
 
@@ -115,11 +117,8 @@ class QuestionSAT(Question):
 
     def _test_instance(self, instance):
         expected = "SAT"
-        if isinstance(self._encoding, str):
-            opt = [self._encoding, os.path.join(self._instance_path,instance), MAX_SOLUTIONS]
-        else:
-            opt = list(self._encoding)
-            opt.extend([os.path.join(self._instance_path,instance), MAX_SOLUTIONS])
+        opt = list(self._encoding)
+        opt.extend([os.path.join(self._instance_path,instance), MAX_SOLUTIONS])
         try:
             stdout, time = call_clingo(self._args.clingo, opt, self._args.timeout)
             output = json.loads(stdout)
@@ -139,6 +138,13 @@ class QuestionSAT(Question):
     def _test_all_instances(self):
         success = True
         message = ""
+        for file in self._encoding:
+            if not os.path.isfile(file):
+                success = False
+                message = f'Encoding not found: {file} \n'
+                break
+        if not success:
+            return success, message
         for instance in self._instances:
             result = 0
             error = False
@@ -275,28 +281,35 @@ def main():
         args=parse()
         if args.generate_solutions:
             generate_solutions(args)
-        elif args.question:
+            return 0
+        if args.question:
             question = dispatch_question(args)
             success, message = question.eval()
             if success:
                 message += "SUCCESS\n"
+                ret = 0
             else:
                 message += "FAILURE\n"
+                ret = 1
             sys.stdout.write(message)
+            return ret
+
+        question_data = { "type"          : "exact",
+                          "instance-path" : args.instances,
+                          "solutions"     : args.solutions,
+                          "encoding"      : args.encoding,
+                          "path"          : os.getcwd()
+                        }
+        question = QuestionSATExact(args, question_data)
+        success, message = question.eval()
+        if success:
+            message += "SUCCESS\n"
+            ret = 0
         else:
-            question_data = { "type"          : "exact",
-                              "instance-path" : args.instances,
-                              "solutions"     : args.solutions,
-                              "encoding"      : args.encoding,
-                              "path"          : os.getcwd()
-                            }
-            question = QuestionSATExact(args, question_data)
-            success, message = question.eval()
-            if success:
-                message += "SUCCESS\n"
-            else:
-                message += "FAILURE\n"
-            sys.stdout.write(message)
+            message += "FAILURE\n"
+            ret = 1
+        sys.stdout.write(message)
+        return 1
 
     except Exception as e:
         if len(e.args) >= 1:
